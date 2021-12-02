@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+
+		<title>Frontend Mentor | NFT preview card component</title>
+
+		<style>
+			@font-face {
+				font-family: 'Outfit';
+				src: url('/fonts/Outfit-Light.eot');
+				src: url('/fonts/Outfit-Light.eot?#iefix') format('embedded-opentype'),
+					url('/fonts/Outfit-Light.woff2') format('woff2'),
+					url('/fonts/Outfit-Light.woff') format('woff'),
+					url('/fonts/Outfit-Light.ttf') format('truetype');
+				font-weight: 300;
+				font-style: normal;
+			}
+
+			@font-face {
+				font-family: 'Outfit';
+				src: url('/fonts/Outfit-Regular.eot');
+				src: url('/fonts/Outfit-Regular.eot?#iefix') format('embedded-opentype'),
+					url('/fonts/Outfit-Regular.woff2') format('woff2'),
+					url('/fonts/Outfit-Regular.woff') format('woff'),
+					url('/fonts/Outfit-Regular.ttf') format('truetype');
+				font-weight: 400;
+				font-style: normal;
+			}
+
+			@font-face {
+				font-family: 'Outfit';
+				src: url('/fonts/Outfit-SemiBold.eot');
+				src: url('/fonts/Outfit-SemiBold.eot?#iefix')
+						format('embedded-opentype'),
+					url('/fonts/Outfit-SemiBold.woff2') format('woff2'),
+					url('/fonts/Outfit-SemiBold.woff') format('woff'),
+					url('/fonts/Outfit-SemiBold.ttf') format('truetype');
+				font-weight: 600;
+				font-style: normal;
+			}
+
+			body {
+				background-color: hsl(217, 54%, 11%);
+				font-family: 'Outfit', sans-serif;
+				color: hsl(215, 51%, 70%);
+				font-size: 16px;
+				line-height: 1.6rem;
+			}
+
+			main {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 0 20px 0 20px;
+			}
+
+			.card {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				color: inherit;
+				background-color: hsl(216, 50%, 16%);
+				width: 290px;
+				padding: 20px;
+				border-radius: 20px;
+			}
+
+			*:hover {
+				transition: 0.5s ease;
+			}
+
+			.img-container {
+				position: relative;
+				width: 100%;
+			}
+
+			.asset,
+			.overlay {
+				border-radius: 10px;
+				width: 100%;
+				height: auto;
+			}
+
+			p {
+				margin: 0;
+			}
+
+			.asset {
+				display: block;
+			}
+
+			.overlay {
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				opacity: 0;
+				background-color: hsla(178, 100%, 50%, 0.5);
+			}
+
+			.img-container:hover .overlay {
+				cursor: pointer;
+				opacity: 1;
+			}
+
+			#eye {
+				color: white;
+				font-size: 20px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				-webkit-transform: translate(-50%, -50%);
+				-ms-transform: translate(-50%, -50%);
+				transform: translate(-50%, -50%);
+				text-align: center;
+			}
+
+			h1,
+			a {
+				color: white;
+				font-size: 18px;
+			}
+
+			h1:hover,
+			a:hover {
+				color: hsl(178, 100%, 50%);
+				cursor: pointer;
+			}
+
+			.price {
+				color: hsl(178, 100%, 50%);
+			}
+
+			.info,
+			.attribution {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			hr {
+				background-color: #8bacda;
+				height: 1px;
+				border: 0;
+				margin: 0;
+			}
+
+			.icon-text {
+				margin: 14px 0 10px 0;
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 7px;
+			}
+
+			.avatar {
+				margin-right: 10px;
+				height: 2rem;
+				border-radius: 50%;
+				border-style: solid;
+				border-color: white;
+				border-width: 1px;
+			}
+
+			footer {
+				display: flex;
+				justify-content: center;
+				width: 100%;
+			}
+
+			.attribution {
+				position: absolute;
+				width: 95%;
+				margin: auto;
+				bottom: 0;
+				height: 30px;
+			}
+
+			.attribution-text,
+			a.attribution-text {
+				font-size: 11px;
+			}
+
+			@media only screen and (min-width: 600px) {
+				.card {
+					max-width: 375px;
+					-webkit-box-shadow: 0px 40px 0px 70px rgba(0, 0, 0, 0.05),
+						0px 40px 0px 20px rgba(0, 0, 0, 0.1);
+					box-shadow: 0px 40px 0px 70px rgba(0, 0, 0, 0.05),
+						0px 40px 0px 20px rgba(0, 0, 0, 0.1);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<main>
+			<div class="card">
+				<div class="img-container">
+					<img src="images/image-equilibrium.jpg" class="asset" />
+					<div class="overlay">
+						<img src="images/icon-view.svg" alt="eye icon" id="eye" />
+					</div>
+				</div>
+				<h1>Equilibrium #3429</h1>
+				<p class="description">
+					Our Equilibrium collection promotes balance and calm.
+				</p>
+				<div class="info">
+					<div class="price icon-text">
+						<img src="images/icon-ethereum.svg" alt="ethereum icon" />
+						<p>0.041 ETH</p>
+					</div>
+					<div class="left icon-text">
+						<img src="images/icon-clock.svg" alt="clock icon" />
+						<p>3 days left</p>
+					</div>
+				</div>
+				<hr />
+				<div class="icon-text">
+					<img src="images/image-avatar.png" class="avatar" />
+					<p>Creation of <a>Jules Wyvern</a></p>
+				</div>
+			</div>
+		</main>
+		<footer>
+			<div class="attribution">
+				<div>
+					<p class="attribution-text">
+						Challenge by
+						<a
+							class="attribution-text"
+							href="https://www.frontendmentor.io?ref=challenge"
+							target="_blank"
+							>Frontend Mentor</a
+						>.
+					</p>
+				</div>
+				<div>
+					<p class="attribution-text">
+						Coded by <a class="attribution-text" href="#">Leonardo Campetti</a>.
+					</p>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>
